@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+
+<head>
+    <title>Task - 2</title>
+    <meta charset="UTF-8">
+</head>
+<style>
+    * {
+        margin: 0;
+    }
+
+    body {
+        text-align: center;
+        margin-top: 10%;
+        padding-left: 20%;
+        padding-right: 20%;
+        background-image: url("bg1.jpg");
+        background-size: cover;
+    }
+
+    body>div {
+        margin: 0;
+        padding: 0;
+        border: 1px solid dimgray;
+        border-radius: 10%;
+        box-shadow: 0px 0px 100px 5px rgb(20, 20, 66);
+    }
+
+    h1 {
+        padding: 5%;
+        text-decoration: underline;
+        color: rgba(92, 168, 240, 0.829);
+        text-shadow: 0px 4px 5px #717375;
+    }
+
+    h2 {
+        padding-bottom: 5%;
+        color: rgba(128, 124, 192, 0.829);
+    }
+
+    body>div>div {
+        color: rgb(206, 123, 123);
+        width: 100%;
+        display: table;
+    }
+
+    body>div>div div {
+        display: table-cell;
+        padding-bottom: 4%;
+        width: 20%;
+        font-size: 1.2em;
+    }
+
+    a {
+        text-decoration: none;
+        color: rgb(189, 186, 186);
+        font-size: large;
+        padding-bottom: 5px;
+        border-bottom: 2px solid #fff;
+    }
+
+    a:hover {
+        font-weight: 600;
+        color: aquamarine;
+    }
+
+    input {
+        border: 1px solid rgb(255, 255, 255);
+        box-shadow: 0px 0px 2px 1px rgb(214, 103, 103);
+    }
+
+    .text {
+        margin-top: 5px;
+        height: 25px;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .button {
+        margin-top: 10px;
+        height: 40px;
+        width: 80px;
+        border-radius: 30%;
+        font-size: large;
+        border: none;
+    }
+
+    .button:hover {
+        background-color: #717375;
+        color: #fff;
+        cursor: pointer;
+        border: none;
+    }
+
+    .option {
+        margin-top: 5px;
+        font-size: large;
+        border: none;
+        height: 30px;
+    }
+
+    .option:hover {
+        cursor: pointer;
+        border: none;
+    }
+</style>
+
+<body>
+    <div>
+        <h1>Welcome to virtual linux OS</h1>
+        <h2>Enter Username and Password to continue</h2>
+
+        <div>
+            <div>
+                <form>
+                    <div>
+                        Enter Username<br>
+                        <input id="username" class="text" type="text/html" name="username"><br>
+                    </div>
+                    <div>
+                        Enter Password<br>
+                        <input id="password" class="text" type="password" name="password"><br>
+                    </div>
+                    <input onclick="verify()" class="button" type="button" value="Login">
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        var attempt = 3; // Variable to count number of attempts.
+        // Below function Executes on click of login button.
+        function verify() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            if (username == "Faraz" && password == "abc123") {
+                alert("Login successfully");
+                window.location = "welcome.html"; // Redirecting to other page.
+                return false;
+            }
+            else {
+                attempt--;// Decrementing by one.
+                alert("Incorrect credentials!!! You have " + attempt + " attempt left.");
+                // Disabling fields after 3 attempts.
+                if (attempt == 0) {
+                    document.getElementById("username").disabled = true;
+                    document.getElementById("password").disabled = true;
+                    document.getElementById("submit").disabled = true;
+                    return false;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
